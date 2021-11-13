@@ -1,0 +1,23 @@
+{
+    "1": {
+        "full_name": "Gaststätte Faun München",
+        "address": "Hans-Sachs-Straße 17, 80469 München",
+        "url": "https://faun-muenchen.de",
+        "oeffnungszeiten": "from to string",
+        "string-to-data": "a.list.with"
+    },
+    "2": {
+        "full_name": "Augustiner-Gaststätte Rumpler",
+        "address": "Baumstraße 21, 80469 München",
+        "url": "http://www.rumpler-augustiner.de/?id=5",
+        "oeffnungszeiten": "from to string",
+        "string-to-data": "a.list.with"
+    },
+    "3": {
+        "full_name": "Kaiser Otto - Café & Restaurant",
+        "address": "Westermühlstraße 8, 80469 München",
+        "url": "https://www.kaiserotto.de",
+        "oeffnungszeiten": "from to string",
+        "string-to-data": "a.list.with"
+    }
+}

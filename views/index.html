@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tageskarten im Glockenbach</title>
+    <meta name="description" content="Übersicht über Lieblingsrestaurants in der Nähe" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://gomix.com/favicon-app.ico"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/morph/bootstrap.min.css"
+    />
+  </head>
+  <body>
+      <div class="container">
+          <h1 class="display-1">
+            Tageskarten im Glockenbach
+          </h1>
+        <p> Heute: {{today}}</p>
+      <div class="row">
+          {% for rest in restaurants %}
+        <div class="col">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h2 class="card-title">{{rest['name']|safe}}</h2>
+              <small class="card-subtitle mb-2 text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="Aktuell wäre: {{ today }}"> Update: {{ rest['created_at']|safe}}</small>
+              <!-- <p class="card-subtitle mb-2 text-muted">{{rest['address']|safe}}</p> -->
+              <details>
+                <summary>
+                  Speisekarte
+                </summary>
+                <p class="card-text">{{rest['tageskarte']|safe}} </p>
+              </details>
+              <a href={{rest['button_link']}}> 
+                <button class="btn btn-primary">
+                  Zum Original
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+          
+    </div>
+  </body>
+  
+  <footer>
+    <hr>
+    <small class="text-muted">
+      Made by holgerkurtz.de | Private Project | <a href="https://kulturdata.de/impressum/">Impressum & Datenschutzerklärung </a>
+    </p>
+  </small>
+  
+</html>
