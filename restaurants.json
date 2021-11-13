@@ -1,0 +1,51 @@
+{
+    "1": {
+        "full_name": "Gaststätte Faun München",
+        "address": "Hans-Sachs-Straße 17, 80469 München",
+        "url": "https://faun-muenchen.de",
+        "oeffnungszeiten": "from to string",
+        "menu": "dynamic"
+    },
+    "2": {
+        "full_name": "Augustiner-Gaststätte Rumpler",
+        "address": "Baumstraße 21, 80469 München",
+        "url": "http://www.rumpler-augustiner.de/?id=5",
+        "oeffnungszeiten": "from to string",
+        "menu": "dynamic"
+    },
+    "3": {
+        "full_name": "Kaiser Otto - Café & Restaurant",
+        "address": "Westermühlstraße 8, 80469 München",
+        "url": "https://www.kaiserotto.de",
+        "oeffnungszeiten": "from to string",
+        "menu": "dynamic"
+    },
+    "4": {
+        "full_name": "FUGAZI",
+        "address": "Wittelsbacherstr. 15, 80469 München",
+        "url": "https://fugazi.pizza/lunch",
+        "oeffnungszeiten": "from to string",
+        "menu": "dynamic"
+    },
+    "5": {
+        "full_name": "Le Du",
+        "address": "Adresse",
+        "url": "https://ledu.restaurant/wp-content/uploads/led_klenzestrasse_lunchkarte_01_200423_web.pdf",
+        "oeffnungszeiten": "Montag - Sonntag | 12.00 - 15:00 Uhr",
+        "menu": "3 Gerichte zur Auswahl. Pro Person € 11,90"
+    },
+    "6": {
+        "full_name": "Tabula Rasa",
+        "address": "Adresse",
+        "url": "https://www.cafetabularasa.de/speisekarte/",
+        "oeffnungszeiten": "unklar",
+        "menu": "zu unstrukturiert programmiert, um es zu scrapen"
+    },
+    "7": {
+        "full_name": "Café Schneewitchen",
+        "address": "Adresse",
+        "url": "https://cafeschneewittchen.de/mittagstisch.pdf",
+        "oeffnungszeiten": "Do-Sa",
+        "menu": "dynamisch"
+    }
+}
