@@ -30,7 +30,7 @@ class Restaurants:
             # faun
             for a in soup.find_all("a", href=True):
                 if ("MITTAGSKARTE" in a.get_text()) and (".pdf" in a.get("href")):
-                    tageskarte_url = f"{restaurant_url}{a.get('href')}"                    
+                    tageskarte_url = f"{restaurant_url}{a.get('href')}"
                     return self.get_pdf_data(tageskarte_url), tageskarte_url
 
         elif self.ID == "2":  # rumpler
@@ -46,18 +46,39 @@ class Restaurants:
             full_link_tageskarte = f"{restaurant_url}{link_tageskarte.get('href')}"
             return self.get_pdf_data(full_link_tageskarte), full_link_tageskarte
 
+        elif self.ID == "4":  # FUGAZI
+            tageskarte_raw = soup.find_all(
+                "div", class_="sqs-block-content")
+
+            tageskarte_formatted = "".join(
+                [str(x) for x in tageskarte_raw])
+
+            return [tageskarte_formatted, "n/a"], restaurant_url
+
+        elif self.ID == "5":  # Le Du
+            return [self._restaurant_data("menu"), "n/a"], restaurant_url
+
+        elif self.ID == "6":  # Tabula Rasa
+            return [self._restaurant_data("menu"), "n/a"], restaurant_url
+
+        elif self.ID == "7":  # Cafe Schneewitchen
+            tageskarte_url = self._restaurant_data("url")
+            # TODO: format pdf data
+            return self.get_pdf_data(tageskarte_url), tageskarte_url
+
     def get_pdf_data(self, tageskarte_url):
         response = requests.get(tageskarte_url)
         print(response.status_code)
         with io.BytesIO(response.content) as open_pdf_file:
             read_pdf = pypdf.PdfFileReader(open_pdf_file)
-            created_at = read_pdf.getXmpMetadata().xmp_modifyDate # .getDocumentInfo()#.getPage(0)# .extractText()
+            # .getDocumentInfo()#.getPage(0)# .extractText()
+            created_at = read_pdf.getXmpMetadata().xmp_modifyDate
             page_string = read_pdf.getPage(0).extractText()
-            tageskarte_formatted = page_string.replace("\n", "<br><br>").replace("•", " <br> ")
+            tageskarte_formatted = page_string.replace(
+                "\n", "<br><br>").replace("•", " <br> ")
         return tageskarte_formatted, created_at
 
 
 if __name__ == "__main__":
-    r = Restaurants("1")
-    info = r.get_pdf_data("https://faun-muenchen.de/site/assets/files/1074/mittag18_10_21.pdf")
-    print(info)
+    r = Restaurants("6")
+    r.get_tageskarte()
